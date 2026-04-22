@@ -1718,6 +1718,18 @@
     .work-card-screenshot {
       cursor: zoom-in;
     }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 
   <script>
@@ -1771,6 +1783,57 @@
       if (e.key === 'ArrowLeft' && current > 0) { current--; show(); }
       if (e.key === 'ArrowRight' && current < gallery.length - 1) { current++; show(); }
     });
+  </script>
+
+  <script>
+    (function () {
+      const staggerParents = [
+        '.work-grid',
+        '.testimonials-grid',
+        '.testimonial-highlight',
+        '.appearances-grid',
+        '.industries-grid',
+        '.skills-strip',
+        '.about-timeline',
+      ];
+
+      const singleSelectors = [
+        '.section-header',
+        '.about-photo',
+        '.about-pull',
+        '.about-body',
+        '.contact-inner',
+        'footer',
+      ];
+
+      function applyReveal(el, delay = 0) {
+        el.classList.add('reveal');
+        if (delay) el.style.transitionDelay = delay + 'ms';
+      }
+
+      singleSelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => applyReveal(el));
+      });
+
+      staggerParents.forEach(parentSel => {
+        document.querySelectorAll(parentSel).forEach(parent => {
+          Array.from(parent.children).forEach((child, i) => {
+            applyReveal(child, Math.min(i, 4) * 80);
+          });
+        });
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
   </script>
 
 </body>
