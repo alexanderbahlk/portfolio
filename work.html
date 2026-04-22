@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Work — Alexander Bahlk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #090909;
+      --bg-2: #111111;
+      --bg-3: #161616;
+      --line: rgba(255, 255, 255, 0.07);
+      --line-strong: rgba(255, 255, 255, 0.12);
+      --text: #E8E6E0;
+      --text-muted: #6A6A6A;
+      --text-dim: #3A3A3A;
+      --accent: #00E87A;
+      --accent-dim: rgba(0, 232, 122, 0.12);
+      --serif: 'Playfair Display', Georgia, serif;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(9, 9, 9, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-back:hover {
+      color: var(--accent);
+    }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+
+    .page-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .page-title em {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .page-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .filter-tag {
+      padding: 6px 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      cursor: default;
+    }
+
+    /* SECTION LABEL */
+    .work-section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding-top: 60px;
+      padding-bottom: 28px;
+    }
+
+    /* HIGHLIGHT GRID */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 1px;
+    }
+
+    /* WORK ENTRY CARD */
+    .entry-card {
+      background: var(--bg);
+      padding: 40px 36px;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .entry-card:hover {
+      background: var(--bg-2);
+    }
+
+    .entry-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    .entry-card-company {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .entry-card-role {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .entry-card-period {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+
+    .entry-card-impact {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .entry-card-impact li {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .entry-card-impact li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .entry-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+    }
+
+    .entry-tag {
+      padding: 3px 10px;
+      border: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .highlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(0, 232, 122, 0.2);
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* OTHER ENGAGEMENTS (single-column list) */
+    .engagements-list {
+      border: 1px solid var(--line);
+      background: var(--bg);
+    }
+
+    .engagement-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: 28px 36px;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
+    }
+
+    .engagement-row:last-child {
+      border-bottom: none;
+    }
+
+    .engagement-row:hover {
+      background: var(--bg-2);
+    }
+
+    .engagement-company {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .engagement-role {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .engagement-role strong {
+      color: var(--text);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .engagement-period {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-back {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-back:hover {
+      color: var(--accent);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 18px 24px;
+      }
+
+      .page-wrap {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .page-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .engagement-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 24px;
+      }
+
+      .engagement-period {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">Alexander <span>Bahlk</span></a>
+    <a class="nav-back" href="index.html">← Portfolio</a>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="page-eyebrow">// Career work</div>
+      <h1 class="page-title">15 years of<br><em>product leadership.</em></h1>
+      <p class="page-desc">
+        Fractional Head of Product, Senior PM, coach, and advisor — across startups, scale-ups, and enterprise.
+        From Berlin's startup scene to Ottawa's innovation corridor.
+      </p>
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-tag">Head of Product</span>
+      <span class="filter-tag">Senior PM</span>
+      <span class="filter-tag">Coaching</span>
+      <span class="filter-tag">Advisory</span>
+      <span class="filter-tag">B2C</span>
+      <span class="filter-tag">B2B</span>
+      <span class="filter-tag">Health Tech</span>
+      <span class="filter-tag">PropTech</span>
+      <span class="filter-tag">EdTech</span>
+      <span class="filter-tag">FinTech</span>
+    </div>
+
+    <!-- CAREER HIGHLIGHTS -->
+    <div class="work-section-label">// Career highlights</div>
+
+    <div class="highlights-grid">
+
+      <!-- Invest Ottawa -->
+      <div class="entry-card">
+        <div class="entry-card-company">Invest Ottawa</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Early-Stage Startup Advisor</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Apr 2025 — Present</div>
+        <ul class="entry-card-impact">
+          <li>Advising 20+ early-stage startups through Invest Ottawa's accelerator programs on product strategy and go-to-market</li>
+          <li>Helping founders sharpen product-market fit, prioritise roadmaps, and navigate early growth decisions</li>
+          <li>Bridging startup methodology with real-world product execution across diverse verticals</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">Advisory</span>
+          <span class="entry-tag">Accelerator</span>
+          <span class="entry-tag">0→1</span>
+          <span class="entry-tag">Ottawa</span>
+        </div>
+      </div>
+
+      <!-- zollsoft -->
+      <div class="entry-card">
+        <div class="entry-card-company">zollsoft GmbH</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Interim Head of Product</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Nov 2024 — Nov 2025</div>
+        <ul class="entry-card-impact">
+          <li>Drove 40% customer growth within 12 months at a health tech SaaS</li>
+          <li>Restructured the product function, introduced OKRs, and aligned roadmap with commercial targets</li>
+          <li>Established discovery and delivery practices where none existed before</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">Health Tech</span>
+          <span class="entry-tag">B2B SaaS</span>
+          <span class="entry-tag">Fractional HoP</span>
+          <span class="entry-tag">OKRs</span>
+        </div>
+      </div>
+
+      <!-- AVIV Group -->
+      <div class="entry-card">
+        <div class="entry-card-company">AVIV Group</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Interim Head of Product</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Mar 2023 — Mar 2024</div>
+        <ul class="entry-card-impact">
+          <li>Led 4 product teams across Europe's largest real estate classifieds group (Axel Springer)</li>
+          <li>Hired and onboarded 2 Senior Product Managers during a critical scale phase</li>
+          <li>Drove cross-team alignment and stakeholder management across Germany, France, and Israel</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">PropTech</span>
+          <span class="entry-tag">Scale-up</span>
+          <span class="entry-tag">Fractional HoP</span>
+          <span class="entry-tag">Hiring</span>
+        </div>
+      </div>
+
+      <!-- Product People -->
+      <div class="entry-card">
+        <div class="entry-card-company">Product People</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Director of Product</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Oct 2021 — May 2024</div>
+        <ul class="entry-card-impact">
+          <li>Scaled the company from 10 to 40 employees as Director of Product</li>
+          <li>Placed and coached PMs at WHO, Blinkist, AVIV Group, and other leading organisations</li>
+          <li>Built community programming, content strategy, and PM career frameworks</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">EdTech</span>
+          <span class="entry-tag">Coaching</span>
+          <span class="entry-tag">Community</span>
+          <span class="entry-tag">Scale</span>
+        </div>
+      </div>
+
+      <!-- GfK -->
+      <div class="entry-card">
+        <div class="entry-card-company">GfK</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">PM Coaching Engagement</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Aug 2022 — Mar 2023</div>
+        <ul class="entry-card-impact">
+          <li>Coached 40 Product Managers across GfK's global product organisation</li>
+          <li>Designed and delivered structured coaching programmes across seniority levels</li>
+          <li>Focused on discovery, stakeholder management, and career development for PMs</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">Enterprise</span>
+          <span class="entry-tag">PM Coaching</span>
+          <span class="entry-tag">Data &amp; Insights</span>
+          <span class="entry-tag">Global</span>
+        </div>
+      </div>
+
+      <!-- Blinkist -->
+      <div class="entry-card">
+        <div class="entry-card-company">Blinkist</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Interim Senior Product Manager</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Feb 2022 — Jul 2022</div>
+        <ul class="entry-card-impact">
+          <li>Owned the Collections and Connect product areas, shaping social and content discovery features</li>
+          <li>Ran cross-functional squads through discovery, prototyping, and delivery</li>
+          <li>Delivered measurable improvements to content engagement and retention metrics</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">EdTech</span>
+          <span class="entry-tag">B2C</span>
+          <span class="entry-tag">Consumer App</span>
+          <span class="entry-tag">Berlin</span>
+        </div>
+      </div>
+
+      <!-- nebenan.de -->
+      <div class="entry-card">
+        <div class="entry-card-company">nebenan.de</div>
+        <div class="entry-card-header">
+          <div class="entry-card-role">Interim Head of Product</div>
+          <span class="highlight-badge">★ Highlight</span>
+        </div>
+        <div class="entry-card-period">Jan 2021 — Jun 2021</div>
+        <ul class="entry-card-impact">
+          <li>Led product at Europe's largest neighbourhood social network during a pivotal growth phase</li>
+          <li>Managed multiple squads across consumer and business product lines</li>
+          <li>Defined product strategy connecting hyperlocal community value with commercial sustainability</li>
+        </ul>
+        <div class="entry-card-tags">
+          <span class="entry-tag">Social Platform</span>
+          <span class="entry-tag">B2C</span>
+          <span class="entry-tag">Fractional HoP</span>
+          <span class="entry-tag">Berlin</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER ENGAGEMENTS -->
+    <div class="work-section-label" style="padding-top: 80px;">// Other engagements</div>
+
+    <div class="engagements-list">
+
+      <div class="engagement-row">
+        <div class="engagement-company">Emma Sleep</div>
+        <div class="engagement-role">
+          <strong>Interim Product Manager</strong>
+          IoT mattress app — connected device product for Europe's leading sleep brand
+        </div>
+        <div class="engagement-period">Nov 2021 — May 2022</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">HeyJobs</div>
+        <div class="engagement-role">
+          <strong>Senior Product Manager — Recruiter Portal</strong>
+          Screening questions, statistics, and employer-side tools; grew platform to 30+ job boards
+        </div>
+        <div class="engagement-period">Dec 2019 — Dec 2020</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">HeyJobs</div>
+        <div class="engagement-role">
+          <strong>Senior Product Manager — Mobile App</strong>
+          Pivoted from Memorado, launched mobile job search app across 30+ platforms
+        </div>
+        <div class="engagement-period">Apr 2016 — May 2017</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">Klara</div>
+        <div class="engagement-role">
+          <strong>Technical Product Manager</strong>
+          EHR integrations via HL7/FHIR — patient communication platform for US healthcare providers
+        </div>
+        <div class="engagement-period">Jan 2019 — Oct 2019</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">BIA (FHA + FCA)</div>
+        <div class="engagement-role">
+          <strong>Product Workshops for Startups</strong>
+          Structured product workshops for two accelerator cohorts on discovery, roadmapping, and delivery
+        </div>
+        <div class="engagement-period">Nov 2022 — Mar 2023</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">BIA</div>
+        <div class="engagement-role">
+          <strong>Startup Product Coaching</strong>
+          1:1 coaching for three startups — F50, Kunstel, Mendu — on product strategy and go-to-market
+        </div>
+        <div class="engagement-period">Nov 2022 — Mar 2023</div>
+      </div>
+
+      <div class="engagement-row">
+        <div class="engagement-company">Medwing</div>
+        <div class="engagement-role">
+          <strong>Product Workshop</strong>
+          Full-day product strategy and discovery workshop for the Medwing team
+        </div>
+        <div class="engagement-period">Feb 2023</div>
+      </div>
+
+    </div>
+
+    <div style="padding-bottom: 120px;"></div>
+
+  </div><!-- /page-wrap -->
+
+  <footer class="page-footer">
+    <span class="footer-copy">© 2026 Alexander Bahlk</span>
+    <a href="index.html" class="footer-back">← Back to portfolio</a>
+  </footer>
+
+</body>
+</html>
