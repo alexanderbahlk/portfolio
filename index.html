@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander Bahlk — Product Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #090909;
+    --bg-2: #111111;
+    --bg-3: #161616;
+    --line: rgba(255,255,255,0.07);
+    --line-strong: rgba(255,255,255,0.12);
+    --text: #E8E6E0;
+    --text-muted: #6A6A6A;
+    --text-dim: #3A3A3A;
+    --accent: #00E87A;
+    --accent-dim: rgba(0,232,122,0.12);
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(9,9,9,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  /* HERO */
+  #hero {
+    padding-top: 160px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0,232,122,0.2);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 48px;
+    width: fit-content;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(72px, 10vw, 130px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -3px;
+    color: var(--text);
+    margin-bottom: 36px;
+  }
+  .hero-name .accent { color: var(--accent); }
+
+  .hero-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-role {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--text-dim);
+    align-self: center;
+  }
+  .hero-location {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+
+  .hero-desc {
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 580px;
+    line-height: 1.65;
+    margin-bottom: 52px;
+  }
+  .hero-desc strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #000;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid var(--line-strong);
+    color: var(--text-muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--text-muted); color: var(--text); }
+
+  .hero-years {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 60px;
+  }
+  .year-stat {}
+  .year-num {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .year-num span { color: var(--accent); }
+  .year-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SKILLS */
+  #skills {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .skills-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .skills-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .skill-tag {
+    padding: 7px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-top: 100px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* ABOUT */
+  #about { padding-bottom: 100px; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-pull {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-muted);
+    line-height: 1.4;
+    border-left: 2px solid var(--accent);
+    padding-left: 28px;
+  }
+  .about-body {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .about-body p + p { margin-top: 20px; }
+  .about-timeline {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .timeline-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    min-width: 40px;
+    flex-shrink: 0;
+  }
+  .timeline-event {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .timeline-event strong { color: var(--text); font-weight: 500; }
+
+  /* WORK */
+  #work { padding-bottom: 100px; }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .work-card {
+    background: var(--bg);
+    padding: 40px 36px;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .work-card:hover { background: var(--bg-2); }
+  .work-card-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+  .work-card-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .work-card-company {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .work-card-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .work-card-arrow {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .work-card:hover .work-card-arrow {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* INDUSTRIES */
+  #industries { padding-bottom: 100px; }
+  .industries-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .industry-tag {
+    padding: 8px 18px;
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { padding-bottom: 100px; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-bottom: 1px;
+  }
+  .testimonial-card {
+    background: var(--bg);
+    padding: 44px 40px;
+  }
+  .testimonial-quote {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .testimonial-quote::before {
+    content: '\201C';
+    color: var(--accent);
+    font-size: 36px;
+    line-height: 0;
+    vertical-align: -14px;
+    margin-right: 4px;
+  }
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .testimonial-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .testimonial-role {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+  .testimonial-highlight {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .mini-quote {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-style: italic;
+    padding-left: 16px;
+    border-left: 1px solid var(--line-strong);
+  }
+  .mini-quote strong {
+    display: block;
+    font-size: 12px;
+    font-style: normal;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+    margin-top: 10px;
+  }
+
+  /* APPEARANCES */
+  #appearances { padding-bottom: 100px; }
+  .appearances-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .appearance-card {
+    background: var(--bg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .appearance-card:hover { background: var(--bg-2); }
+  .appearance-platform {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .appearance-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .appearance-icon.spotify { background: #1DB954; }
+  .appearance-icon.youtube { background: #FF0000; }
+  .appearance-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: auto;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding-top: 100px;
+    padding-bottom: 120px;
+  }
+  .contact-inner {
+    border: 1px solid var(--line);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .contact-heading em {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  .contact-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 340px;
+    line-height: 1.7;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    transition: all 0.2s;
+    color: inherit;
+  }
+  .contact-link:hover {
+    border-color: var(--line-strong);
+    background: var(--bg-2);
+  }
+  .contact-link-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+  .contact-link-text {
+    flex: 1;
+  }
+  .contact-link-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .contact-link-value {
+    font-size: 14px;
+    color: var(--text);
+  }
+  .contact-link-arrow {
+    color: var(--text-dim);
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .contact-link:hover .contact-link-arrow { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+  .footer-built {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+  }
+  .footer-built span { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-status { animation: fadeUp 0.6s ease both; }
+  .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-meta { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-ctas { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-years { animation: fadeUp 0.6s 0.5s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    section, hr.divider, footer { padding-left: 24px; padding-right: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .work-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-highlight { grid-template-columns: 1fr; }
+    .appearances-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+    .hero-years { gap: 32px; flex-wrap: wrap; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Alexander <span>Bahlk</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#appearances">Appearances</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-status">
+    <div class="status-dot"></div>
+    Open to opportunities
+  </div>
+
+  <h1 class="hero-name">
+    Alexander<br>Bahlk<span class="accent">.</span>
+  </h1>
+
+  <div class="hero-meta">
+    <span class="hero-role">Product Leader &nbsp;·&nbsp; AI Enthusiast &nbsp;·&nbsp; Founder</span>
+    <div class="hero-sep"></div>
+    <span class="hero-location">Barbados &amp; Canada</span>
+  </div>
+
+  <p class="hero-desc">
+    Building, launching, and scaling <strong>digital products</strong> for 15+ years.
+    From the German Navy to Berlin's startup scene to the Caribbean —
+    a product leader with <strong>founder instincts</strong> and a deep curiosity for
+    what AI makes possible.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="mailto:abahlk82@gmail.com" class="btn-primary">
+      Get in touch &nbsp;↗
+    </a>
+    <a href="https://www.linkedin.com/in/alexanderbahlk" target="_blank" class="btn-secondary">
+      LinkedIn &nbsp;↗
+    </a>
+  </div>
+
+  <div class="hero-years">
+    <div class="year-stat">
+      <div class="year-num">15<span>+</span></div>
+      <div class="year-label">Years experience</div>
+    </div>
+    <div class="year-stat">
+      <div class="year-num">9</div>
+      <div class="year-label">Industries</div>
+    </div>
+    <div class="year-stat">
+      <div class="year-num">1</div>
+      <div class="year-label">Startup founded</div>
+    </div>
+    <div class="year-stat">
+      <div class="year-num">12<span>+</span></div>
+      <div class="year-label">Testimonials</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="skills">
+  <div class="skills-label">// Core competencies</div>
+  <div class="skills-strip">
+    <span class="skill-tag">Strategic Product Management</span>
+    <span class="skill-tag">Leadership</span>
+    <span class="skill-tag">Commercial Acumen</span>
+    <span class="skill-tag">Analytical Thinking</span>
+    <span class="skill-tag">Customer-Centric Discovery</span>
+    <span class="skill-tag">Team Development</span>
+    <span class="skill-tag">Technical Expertise</span>
+    <span class="skill-tag">AI &amp; Emerging Tech</span>
+    <span class="skill-tag">0→1 Products</span>
+    <span class="skill-tag">Coaching &amp; Mentoring</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="about">
+  <div class="section-header">
+    <div>
+      <div class="section-num">// 01</div>
+      <h2 class="section-title">About <em>me</em></h2>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-pull">
+      "Founding a startup in 2017 gave me a perspective most product leaders never get — I know what it costs to ship, and what it means to own the outcome."
+    </div>
+    <div class="about-body">
+      <p>Born and raised in North-East Germany, I started my career with an IT apprenticeship in 2001, then spent eight years in the German Navy before returning to technology in 2010.</p>
+      <p>After completing a Web Design and Development Bachelor's in Hamburg — while interning at a game studio — I followed the pull of Berlin's startup scene, building product instincts across multiple companies and cultures.</p>
+      <p>In 2017 I co-founded my own startup, one of the best decisions of my career. My formal journey as a product leader began in 2020, deepened through years of client engagements with a leading product management consultancy.</p>
+      <p>Today I'm based between Barbados and Canada, bringing a rare combination of technical background, founder perspective, and product craft to every team I join.</p>
+
+      <div class="about-timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2001</span>
+          <span class="timeline-event"><strong>IT Apprenticeship</strong> — North-East Germany</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2001</span>
+          <span class="timeline-event"><strong>German Navy</strong> — Eight years of service</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2010</span>
+          <span class="timeline-event"><strong>Web Dev Bachelor's</strong> — Hamburg + game studio internship</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2011</span>
+          <span class="timeline-event"><strong>Berlin startup scene</strong> — Multiple industries &amp; cultures</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2017</span>
+          <span class="timeline-event"><strong>Co-founded startup</strong> — Ground-up company building</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2020</span>
+          <span class="timeline-event"><strong>Product leader</strong> — Consultancy engagements across Europe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="work">
+  <div class="section-header">
+    <div>
+      <div class="section-num">// 02</div>
+      <h2 class="section-title">Selected <em>work</em></h2>
+    </div>
+  </div>
+
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-card-num">01 — CoastSolutions</div>
+      <div class="work-card-title">FriendVault</div>
+      <div class="work-card-company">Social Platform</div>
+      <p class="work-card-desc">A social product built around meaningful connection and trust — moving beyond surface-level social networking toward deeper, more intentional relationships.</p>
+      <div class="work-card-arrow">↗</div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-num">02 — CoastSolutions</div>
+      <div class="work-card-title">The Cinder Crusade</div>
+      <div class="work-card-company">Gaming</div>
+      <p class="work-card-desc">A gaming product developed within the CoastSolutions portfolio, combining narrative depth with digital product craft and community engagement.</p>
+      <div class="work-card-arrow">↗</div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-num">03 — CoastSolutions</div>
+      <div class="work-card-title">Cards of Destiny</div>
+      <div class="work-card-company">Gaming / Edutainment</div>
+      <p class="work-card-desc">A card-based game product at the intersection of entertainment and education — leveraging gamification mechanics to drive engagement and learning outcomes.</p>
+      <div class="work-card-arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="skills-label" style="margin-bottom: 20px;">// Industries covered</div>
+  <div class="industries-grid">
+    <span class="industry-tag">Health-Tech</span>
+    <span class="industry-tag">HR-Tech</span>
+    <span class="industry-tag">FinTech</span>
+    <span class="industry-tag">Edutainment</span>
+    <span class="industry-tag">IoT</span>
+    <span class="industry-tag">Social Networks</span>
+    <span class="industry-tag">Gaming</span>
+    <span class="industry-tag">Platforms</span>
+    <span class="industry-tag">Marketplaces</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="testimonials">
+  <div class="section-header">
+    <div>
+      <div class="section-num">// 03</div>
+      <h2 class="section-title">What people <em>say</em></h2>
+    </div>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-quote">Three qualities stood out: high productivity — Alex hit the ground running from day one. Generosity — he prioritizes coaching his team. Fearlessness — not afraid to ask tough questions in a highly complex environment.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Katharina Eggers</span>
+        <span class="testimonial-role">Leiterin, Unternehmensstrategie — zollsoft GmbH</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">Alex is incredibly talented, smart, kind, and supportive. His perspective consistently brought significant value to the table. Everyone knew Alex was there to support them — a perfect balance of safe space and critical eye.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Hasan Naqvi</span>
+        <span class="testimonial-role">Lead PM Consultant — Product People</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">Alex seamlessly integrates a deep understanding of human needs into product strategy. With a rare mix of technical acumen and creativity, he consistently positions products for success. His commitment ensures products are not just cutting-edge but future-proof.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Steven Hemelaere</span>
+        <span class="testimonial-role">IT Director — Passionate about servant leadership</span>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-quote">Alex played a pivotal role, wearing many hats with ease. Whether product management, line management, or general guidance — Alex's input always offered a fresh and valuable perspective. 10/10 would work with him again.</p>
+      <div class="testimonial-author">
+        <span class="testimonial-name">Pim Welting</span>
+        <span class="testimonial-role">CPO — UrbanVind</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial-highlight" style="margin-top: 1px;">
+    <div class="mini-quote">
+      "Used Alex as a lighthouse on how all PMs and teams should operate. Super happy with his performance."
+      <strong>Victoria Busse — VP of Product</strong>
+    </div>
+    <div class="mini-quote">
+      "Alex adapted super well and fast. Created super-fast Opportunity Solution Trees. Expected worse from prior agency experience."
+      <strong>Eveline Moczko — fmr. Head of Product</strong>
+    </div>
+    <div class="mini-quote">
+      "His individual contributor background, combined with product leadership and coaching experience, meant Alex could be relied upon for excellent advice."
+      <strong>Ioana Siman — CSPO, INSEAD</strong>
+    </div>
+    <div class="mini-quote">
+      "Alex is one of those rare people who combine deep IT knowledge with result-driven business sense — and always in a good mood."
+      <strong>Felicia Hommel — Principal, Startup Family Office</strong>
+    </div>
+  </div>
+</section>
+
+<!-- APPEARANCES -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="appearances">
+  <div class="section-header">
+    <div>
+      <div class="section-num">// 04</div>
+      <h2 class="section-title">Appearances</h2>
+    </div>
+  </div>
+
+  <div class="appearances-grid">
+    <a href="https://open.spotify.com/episode/6u6cNLMTRqDYXNNIZExddk?si=32a3a185dd424273" target="_blank" class="appearance-card">
+      <div class="appearance-platform">Spotify Podcast</div>
+      <div class="appearance-icon spotify">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </div>
+      <div class="appearance-label">Podcast episode on product leadership</div>
+    </a>
+    <a href="https://www.youtube.com/live/4hnu4FM6qYY?si=0pR4Tq0wjpebgge9" target="_blank" class="appearance-card">
+      <div class="appearance-platform">YouTube Live</div>
+      <div class="appearance-icon youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </div>
+      <div class="appearance-label">Live session on product strategy</div>
+    </a>
+    <a href="https://www.youtube.com/live/Q30qsk1crWs?si=H8jAFBOoGP86GlaX" target="_blank" class="appearance-card">
+      <div class="appearance-platform">YouTube Live</div>
+      <div class="appearance-icon youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </div>
+      <div class="appearance-label">PM frameworks and discovery</div>
+    </a>
+    <a href="https://www.youtube.com/live/HgIzR8zQDs4?si=x4WyqAP8MAgT1B1L" target="_blank" class="appearance-card">
+      <div class="appearance-platform">YouTube Live</div>
+      <div class="appearance-icon youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </div>
+      <div class="appearance-label">Leadership and team building</div>
+    </a>
+    <a href="https://www.youtube.com/live/Ur0CWnfFiPQ?si=FfuR4Jac_7iw_e_G&t=39" target="_blank" class="appearance-card">
+      <div class="appearance-platform">YouTube Live</div>
+      <div class="appearance-icon youtube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </div>
+      <div class="appearance-label">AI in product management</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div style="border-top: 1px solid rgba(255,255,255,0.07); max-width: 1100px; margin: 0 auto;"></div>
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-heading">Let's build something<br><em>worth building.</em></h2>
+      <p class="contact-sub">Open to senior product leadership roles, advisory engagements, and conversations about what AI makes possible next.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:abahlk82@gmail.com" class="contact-link">
+        <div class="contact-link-icon">✉</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">abahlk82@gmail.com</div>
+        </div>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/alexanderbahlk" target="_blank" class="contact-link">
+        <div class="contact-link-icon">in</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">Alexander Bahlk</div>
+        </div>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+      <a href="https://adplist.org" target="_blank" class="contact-link">
+        <div class="contact-link-icon">◈</div>
+        <div class="contact-link-text">
+          <div class="contact-link-label">ADPList</div>
+          <div class="contact-link-value">Book a mentoring session</div>
+        </div>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Alexander Bahlk</span>
+  <span class="footer-built">Built with <span>AI</span> — deployed with intent.</span>
+</footer>
+
+</body>
+</html>
