@@ -371,6 +371,19 @@
       align-items: start;
     }
 
+    .about-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--line-strong);
+      margin-bottom: 32px;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .about-photo:hover { filter: grayscale(0%); }
+
     .about-pull {
       font-family: var(--serif);
       font-size: 28px;
@@ -1106,7 +1119,7 @@
         <div class="year-label">Startups founded</div>
       </div>
       <div class="year-stat">
-        <div class="year-num">12<span>+</span></div>
+        <div class="year-num">20<span>+</span></div>
         <div class="year-label">Testimonials</div>
       </div>
     </div>
@@ -1141,9 +1154,12 @@
     </div>
 
     <div class="about-grid">
-      <div class="about-pull">
-        "Co-founding WeSource in 2017 and building CoastSolutions solo in 2024 gave me a perspective most product
-        leaders never get — I know what it costs to ship, and what it means to own the outcome."
+      <div>
+        <img class="about-photo" src="images/alex-bahlk-2-headshot-2023.jpg" alt="Alexander Bahlk">
+        <div class="about-pull">
+          "Co-founding WeSource in 2017 and building CoastSolutions solo in 2024 gave me a perspective most product
+          leaders never get — I know what it costs to ship, and what it means to own the outcome."
+        </div>
       </div>
       <div class="about-body">
         <p>Born and raised in North-East Germany, I started my career with an IT apprenticeship in 2001, then spent
@@ -1210,7 +1226,8 @@
           </div>
           <div class="timeline-item">
             <span class="timeline-year">2026</span>
-            <span class="timeline-event"><strong>GovTech Barbados</strong> — Product Strategy Advisor, AI initiatives for public sector</span>
+            <span class="timeline-event"><strong>GovTech Barbados</strong> — Product Strategy Advisor, AI initiatives
+              for public sector</span>
           </div>
         </div>
       </div>
@@ -1396,62 +1413,87 @@
 
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <p class="testimonial-quote">Three qualities stood out: high productivity — Alex hit the ground running from day
-          one. Generosity — he prioritizes coaching his team. Fearlessness — not afraid to ask tough questions in a
-          highly complex environment.</p>
+        <p class="testimonial-quote">High productivity — Alex hit the ground running from day one. Generosity — he
+          prioritizes coaching his team. Fearlessness — not afraid to ask tough questions in a highly complex
+          environment. Alex is a great leader for any company that has a clear sense of where it's headed and wants to
+          get there fast.</p>
         <div class="testimonial-author">
           <span class="testimonial-name">Katharina Eggers</span>
           <span class="testimonial-role">Leiterin, Unternehmensstrategie — zollsoft GmbH</span>
         </div>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">Alex is incredibly talented, smart, kind, and supportive. His perspective
-          consistently brought significant value to the table. Everyone knew Alex was there to support them — a perfect
-          balance of safe space and critical eye.</p>
+        <p class="testimonial-quote">Alex is incredibly talented, smart, kind, and supportive. Everyone knew Alex was
+          there to support them — a perfect balance of safe space and critical eye. He helped me grow not only as a
+          product manager but also as a people leader. If you are looking for an exceptional product leader, I highly
+          recommend Alex.</p>
         <div class="testimonial-author">
           <span class="testimonial-name">Hasan Naqvi</span>
           <span class="testimonial-role">Lead PM Consultant — Product People</span>
         </div>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">Alex seamlessly integrates a deep understanding of human needs into product
-          strategy. With a rare mix of technical acumen and creativity, he consistently positions products for success.
-          His commitment ensures products are not just cutting-edge but future-proof.</p>
+        <p class="testimonial-quote">Alex was the main coach in our product management coaching program at GfK. We
+          valued his deep and versatile expertise and his ability to bridge the gap between theory and practice. The
+          program had the highest levels of participant satisfaction and recommendation rate of all known internal
+          initiatives in the company.</p>
         <div class="testimonial-author">
-          <span class="testimonial-name">Steven Hemelaere</span>
-          <span class="testimonial-role">IT Director — Passionate about servant leadership</span>
+          <span class="testimonial-name">Michaela Brazina</span>
+          <span class="testimonial-role">Women-Centered Innovation — GfK coaching program</span>
         </div>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-quote">Alex played a pivotal role, wearing many hats with ease. Whether product
-          management, line management, or general guidance — Alex's input always offered a fresh and valuable
-          perspective. 10/10 would work with him again.</p>
+        <p class="testimonial-quote">Alex embodies the ideal balance of low maintenance and high results. Working with
+          him is a delight due to his clear and transparent task setup, coupled with logical and reliable
+          decision-making. He fosters an environment of openness and candidness, making collaboration seamless and
+          effective.</p>
         <div class="testimonial-author">
-          <span class="testimonial-name">Pim Welting</span>
-          <span class="testimonial-role">CPO — UrbanVind</span>
+          <span class="testimonial-name">Tomas Pinjušić</span>
+          <span class="testimonial-role">Senior Product Manager — Product People &amp; AVIV Group</span>
         </div>
       </div>
     </div>
 
     <div class="testimonial-highlight" style="margin-top: 1px;">
       <div class="mini-quote">
-        "Used Alex as a lighthouse on how all PMs and teams should operate. Super happy with his performance."
-        <strong>Victoria Busse — VP of Product</strong>
+        "His leadership was defined by trust, clarity, and professional strength. For any team, Alex is a great asset —
+        both humanly and professionally."
+        <strong>Jan-Ole Finkeisen — AI Product Manager, zollsoft GmbH</strong>
       </div>
       <div class="mini-quote">
-        "Alex adapted super well and fast. Created super-fast Opportunity Solution Trees. Expected worse from prior
-        agency experience."
-        <strong>Eveline Moczko — fmr. Head of Product</strong>
+        "Alex stood out for his empathy, ability to truly listen, and skill in aligning diverse perspectives. His care
+        for product managers had a lasting impact on my professional growth."
+        <strong>Fleure N'DOUA — Product Owner, reporting directly to Alex</strong>
+      </div>
+      <div class="mini-quote">
+        "A calm attitude, the ability to delegate, capable of backing up when needed — having structured recommendations
+        and continuously suggesting frameworks and educational articles."
+        <strong>Valentin Escoffier — Lead PM, AVIV Group</strong>
+      </div>
+      <div class="mini-quote">
+        "Alex added huge value to my profile by providing best practices from many different industries. He is the very
+        best listener, approachable for any support at any time."
+        <strong>Mohsen Baghdadi — Lead PM, reporting directly to Alex</strong>
       </div>
       <div class="mini-quote">
         "His individual contributor background, combined with product leadership and coaching experience, meant Alex
         could be relied upon for excellent advice."
-        <strong>Ioana Siman — CSPO, INSEAD</strong>
+        <strong>Ioana Șiman — CSPO, INSEAD · AVIV Group</strong>
       </div>
       <div class="mini-quote">
-        "Alex is one of those rare people who combine deep IT knowledge with result-driven business sense — and always
-        in a good mood."
-        <strong>Felicia Hommel — Principal, Startup Family Office</strong>
+        "Alex is one of those rare people who combine deep IT knowledge with result-driven business sense. Always with a
+        can-do attitude — and always in a good mood."
+        <strong>Felicia Weiper — Managing Director</strong>
+      </div>
+      <div class="mini-quote">
+        "Alex was extremely knowledgeable and brought lots of practical experience to the table. I would recommend him
+        as a coach to any PM, even experienced ones."
+        <strong>Marcus Storm-Mollard — Founder @ Clarm (YC P25)</strong>
+      </div>
+      <div class="mini-quote">
+        "Alex shared his wealth of product knowledge and helped me become a better PM every time we spoke. 10/10 would
+        work with him again — and so should you if you get the chance."
+        <strong>Pim Welting — Product @ Numa</strong>
       </div>
     </div>
   </section>
@@ -1517,7 +1559,7 @@
               d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
           </svg>
         </div>
-        <div class="appearance-label">AI in product management</div>
+        <div class="appearance-label">The rise of Fractional Product Management</div>
       </a>
     </div>
   </section>
