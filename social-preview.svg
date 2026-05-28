@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#090909"/>
+
+  <!-- Left accent bar -->
+  <rect x="60" y="60" width="44" height="4" fill="#00E87A"/>
+
+  <!-- Headline label -->
+  <text
+    x="60" y="118"
+    font-family="'Courier New', Courier, monospace"
+    font-size="14"
+    fill="#6A6A6A"
+    letter-spacing="4"
+  >PRODUCT LEADER  ·  AI ENTHUSIAST  ·  FOUNDER</text>
+
+  <!-- Alexander -->
+  <text
+    x="52" y="300"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="195"
+    font-weight="900"
+    fill="#E8E6E0"
+    letter-spacing="-6"
+  >Alexander</text>
+
+  <!-- Bahlk with green dot -->
+  <text
+    x="52" y="490"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="195"
+    font-weight="900"
+    fill="#E8E6E0"
+    letter-spacing="-6"
+  >Bahlk<tspan fill="#00E87A">.</tspan></text>
+
+  <!-- Divider -->
+  <line x1="52" y1="540" x2="1148" y2="540" stroke="#1f1f1f" stroke-width="1"/>
+
+  <!-- CTA row -->
+  <text
+    x="52" y="590"
+    font-family="'Courier New', Courier, monospace"
+    font-size="15"
+    fill="#3A3A3A"
+    letter-spacing="2"
+  >15+ years building digital products  ·  </text>
+  <text
+    x="620" y="590"
+    font-family="'Courier New', Courier, monospace"
+    font-size="15"
+    fill="#00E87A"
+    letter-spacing="2"
+  >Open to opportunities →</text>
+</svg>
